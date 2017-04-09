@@ -184,6 +184,16 @@ int main(int argc, const char * argv[]) {
             return [((Product*)obj1).name compare:((Product*)obj2).name];
         }];
         NSLog(@"sorted products array by name %@", sortedByName);
+        
+        //Домашнее задание NSMutableArray объектов Product, у пользователя меню:
+        // 1 - Add
+        // 2 - Del
+        // 3 - Sort By Name
+        // 4 - Sort By Price
+        // 5 - Sort By wweight
+        // 6 - Product arraay show
+        // 7 - program exit
+        
 
     }
     return 0;
