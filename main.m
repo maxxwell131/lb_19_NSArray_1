@@ -126,8 +126,23 @@ int main(int argc, const char * argv[]) {
         NSArray *subArray = [months subarrayWithRange:range];
         NSLog(@"subArray %@", subArray);
         
+        //-----Sort array with block---------------------------
         
-
+        NSArray *numbers = [NSArray arrayWithObjects:@"10", @"2", @"20", @"34", nil];
+        NSArray *array = [numbers sortedArrayUsingComparator: ^(id obj1, id obj2) {
+            int number1 = [obj1 intValue];
+            int number2 = [obj2 intValue];
+            
+            if (number1 > number2) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            
+            if (number1 < number2) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            return (NSComparisonResult)NSOrderedSame;
+        }];
+        NSLog(@"sorted array %@", array);
     }
     return 0;
 }
