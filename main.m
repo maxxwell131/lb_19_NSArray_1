@@ -185,6 +185,61 @@ int main(int argc, const char * argv[]) {
         }];
         NSLog(@"sorted products array by name %@", sortedByName);
         
+        //------------NSMutableArray---------------------------------
+        NSMutableArray *month = [NSMutableArray arrayWithObjects:
+                                 @"January", @"February", @"March",
+                                 @"April", @"May", @"June",
+                                 nil];
+        
+        // for (NSString *m in month){
+        //     NSLog(@"%@", m);
+        // }
+        
+        //Методы добавления элементов в массив
+        [month addObject:@"Jule"]; //добавляет в конец массива
+        [month addObject:@"August"]; //добавляет в конец массива
+        
+        [month addObjectsFromArray: prods2]; //добавляет массив в конец массива
+        
+        [month insertObject:@"2222" atIndex: 1]; //вставляет в указаную позицию
+        
+        NSRange rangeArray = {3, prods.count};
+        NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:rangeArray];
+        
+        [month insertObjects: prods atIndexes: indexSet];
+        
+        //Методы удаления элементов из массива
+        [month removeObject: @"2222"];
+        // [month removeObject:(id) inRange:<#(NSRange)#>];
+        // [month removeObjectAtIndex:<#(NSUInteger)#>];
+        // [month removeObjectsAtIndexes:<#(NSIndexSet *)#>];
+        // [month removeAllObjects];
+        // [month removeLastObject];
+        
+        //замена объектов
+        //[month replaceObjectAtIndex:(NSUInteger) withObject:<#(id)#>]; - заменяет один елемент по индексу
+        //[month replaceObjectsAtIndexes:(NSIndexSet *) withObjects:<#(NSArray *)#>]; - заменяет все элементы на новые
+        //[month replaceObjectsInRange:<#(NSRange)#> withObjectsFromArray:<#(NSArray *)#>] - заменяет в диапазоне
+        
+        
+        for (NSString *m in month){
+            NSLog(@"%@", m);
+        }
+        //статический метод
+        NSMutableArray *Z = [NSMutableArray arrayWithCapacity:5];
+        [Z addObject:@"Mondey"];
+        [Z addObject:@"Tuesday"];
+        [Z addObject:@"Wednesday"];
+        [Z addObject:@"Thursday"];
+        [Z addObject:@"Friday"];
+        
+        [Z addObject:@"Saturday"]; // ПРОИСХОДИТ перераспределение памяти
+        
+        //метод уровня класса
+        //NSMutableArray *Z = [[NSMutableArray alloc] initWithCapacity: NSNumber];
+    }
+        
+        
         //Домашнее задание NSMutableArray объектов Product, у пользователя меню:
         // 1 - Add
         // 2 - Del
@@ -193,8 +248,7 @@ int main(int argc, const char * argv[]) {
         // 5 - Sort By wweight
         // 6 - Product arraay show
         // 7 - program exit
-        
+        // Read NSNumber
 
-    }
     return 0;
 }
