@@ -11,7 +11,9 @@
 
 @implementation Product
 
+@synthesize name;
 @synthesize price;
+@synthesize weight;
 
 -(id)initWithName:(NSString *)nm price:(double)pr weight:(int)wg{
     self = [super init];

@@ -143,6 +143,48 @@ int main(int argc, const char * argv[]) {
             return (NSComparisonResult)NSOrderedSame;
         }];
         NSLog(@"sorted array %@", array);
+        
+        //---------Product sorted-------------------------------
+        NSArray *prodsArray = [NSArray arrayWithObjects:
+                          [[Product alloc] initWithName:@"Snickers" price:12.5 weight:45],
+                          [[Product alloc] initWithName:@"Mars"     price:10.3 weight:50],
+                          [[Product alloc] initWithName:@"Bounty"   price:8.9  weight:40],
+                          [[Product alloc] initWithName:@"Twix"     price:15.0 weight:70],
+                          [[Product alloc] initWithName:@"KitKat"   price:11.5 weight:15],
+                          nil];
+        NSArray *sortedArrayProdByPrice = [prodsArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            
+            Product *prod1 = (Product*)obj1;
+            Product *prod2 = (Product*)obj2;
+           
+            if (prod1.price > prod2.price) {
+                return NSOrderedDescending;
+            }
+            
+            if (prod1.price < prod2.price) {
+                return NSOrderedAscending;
+            }
+            return NSOrderedSame;
+            
+        }];
+        NSLog(@"sorted products array by price %@", sortedArrayProdByPrice);
+        
+        NSArray *sortedByWeight = [prodsArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            if (((Product*)obj1).weight > ((Product*)obj2).weight) {
+                return NSOrderedDescending;
+            }
+            if (((Product*)obj1).weight < ((Product*)obj2).weight) {
+                return NSOrderedAscending;
+            }
+            return NSOrderedSame;
+        }];
+        NSLog(@"sorted products array by weight %@", sortedByWeight);
+
+        NSArray *sortedByName = [prods sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            return [((Product*)obj1).name compare:((Product*)obj2).name];
+        }];
+        NSLog(@"sorted products array by name %@", sortedByName);
+
     }
     return 0;
 }

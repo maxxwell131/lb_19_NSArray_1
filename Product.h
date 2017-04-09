@@ -12,7 +12,9 @@
     int weight;
 }
 
+@property (nonatomic) NSString *name;
 @property (readonly) double price;
+@property int weight;
 
 -(id) initWithName : (NSString *) nm price : (double) pr weight : (int) wg;
 -(NSString *) description;
